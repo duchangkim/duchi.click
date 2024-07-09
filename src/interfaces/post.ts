@@ -1,6 +1,6 @@
-import { type Author } from "./author";
+import { type Author } from './author';
 
-export type Post = {
+export interface Post {
   slug: string;
   title: string;
   date: string;
@@ -12,4 +12,4 @@ export type Post = {
   };
   content: string;
   preview?: boolean;
-};
+}

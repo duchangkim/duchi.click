@@ -1,7 +1,7 @@
-type Props = {
+interface Props {
   name: string;
   picture: string;
-};
+}
 
 const Avatar = ({ name, picture }: Props) => {
   return (

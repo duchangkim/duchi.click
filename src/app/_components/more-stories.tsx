@@ -1,9 +1,10 @@
-import { Post } from "@/interfaces/post";
-import { PostPreview } from "./post-preview";
+import { PostPreview } from './post-preview';
 
-type Props = {
+import { Post } from '@/interfaces/post';
+
+interface Props {
   posts: Post[];
-};
+}
 
 export function MoreStories({ posts }: Props) {
   return (

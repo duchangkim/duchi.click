@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
-type Props = {
+interface Props {
   children?: ReactNode;
-};
+}
 
 export function PostTitle({ children }: Props) {
   return (
