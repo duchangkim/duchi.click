@@ -1,14 +1,16 @@
 import { ThemeSwitcher } from './_components/theme-switcher';
 
 import Footer from '@/app/_components/footer';
+import GlobalHeader from '@/app/_components/global-header';
 import { CMS_NAME, HOME_OG_IMAGE_URL } from '@/lib/constants';
 import cn from 'classnames';
 import type { Metadata } from 'next';
+import { NextFont } from 'next/dist/compiled/@next/font';
 import { Inter } from 'next/font/google';
 
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter: NextFont = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: `Next.js Blog Example with ${CMS_NAME}`,
@@ -24,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <head>
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
@@ -38,6 +40,7 @@ export default function RootLayout({
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
       <body className={cn(inter.className, 'dark:bg-slate-900 dark:text-slate-400')}>
+        <GlobalHeader />
         <ThemeSwitcher />
         <div className="min-h-screen">{children}</div>
         <Footer />

@@ -4,7 +4,7 @@ import { join } from 'path';
 import { Post } from '@/interfaces/post';
 import matter from 'gray-matter';
 
-const postsDirectory = join(process.cwd(), '_posts');
+const postsDirectory: string = join(process.cwd(), '_posts');
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
