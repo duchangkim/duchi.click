@@ -2,6 +2,7 @@
 
 import styles from './switch.module.css';
 
+// import NextScript from 'next/script';
 import { MemoExoticComponent, memo, useEffect, useState } from 'react';
 
 declare global {
@@ -69,8 +70,10 @@ const Switch = () => {
     // store global functions to local variables to avoid any interference
     updateDOM = window.updateDOM;
     /** Sync the tabs */
-    addEventListener('storage', (e: StorageEvent): void => {
-      e.key === STORAGE_KEY && setMode(e.newValue as ColorSchemePreference);
+    addEventListener('storage', (e): void => {
+      if (e.key === STORAGE_KEY) {
+        setMode(e.newValue as ColorSchemePreference);
+      }
     });
   }, []);
 
@@ -86,6 +89,16 @@ const Switch = () => {
   };
   return <button suppressHydrationWarning className={styles.switch} onClick={handleModeSwitch} />;
 };
+
+// const Script: MemoExoticComponent<() => JSX.Element> = memo(function Script() {
+//   return (
+//     <NextScript
+//       dangerouslySetInnerHTML={{
+//         __html: `(${NoFOUCScript.toString()})('${STORAGE_KEY}')`,
+//       }}
+//     />
+//   );
+// });
 
 const Script: MemoExoticComponent<() => JSX.Element> = memo(function Script() {
   return (
