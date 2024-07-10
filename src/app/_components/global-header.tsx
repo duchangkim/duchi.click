@@ -1,6 +1,7 @@
 'use client';
 
 import Container from '@/app/_components/container';
+import { ThemeSwitcher } from '@/app/_components/theme-switcher';
 import cn from 'classnames';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -17,7 +18,7 @@ const StyledAnchor: React.ElementType = forwardRef<HTMLAnchorElement, StyledAnch
         ref={forwardedRef}
         className={cn(
           'relative',
-          'before:absolute before:bottom-0 before:hidden before:h-1 before:w-full before:translate-y-0.5 before:bg-slate-800 before:opacity-60 before:content-[""] hover:before:block dark:before:bg-slate-50 dark:before:opacity-40',
+          'before:absolute before:bottom-0 before:hidden before:h-1 before:w-full before:translate-y-0.5 before:bg-slate-800 before:opacity-60 before:content-[""] hover:before:block dark:before:bg-slate-50 dark:before:opacity-70',
           {
             'font-bold': isCurrentPath,
           },
@@ -45,25 +46,28 @@ const GlobalHeader = () => {
               <span className="text-5xl/5 font-extrabold text-green-500">.</span>
             </Link>
           </div>
-          <ul className="flex gap-4">
-            <li>
-              <Link href="https://about.duchi.click" passHref legacyBehavior>
-                <StyledAnchor target="_blank" rel="noopener noreferrer">
-                  About
-                </StyledAnchor>
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog" passHref legacyBehavior>
-                <StyledAnchor isCurrentPath={isCurrentPath('/blog')}>Blog</StyledAnchor>
-              </Link>
-            </li>
-            <li>
-              <Link href="/showcase" passHref legacyBehavior>
-                <StyledAnchor isCurrentPath={isCurrentPath('/showcase')}>Showcase</StyledAnchor>
-              </Link>
-            </li>
-          </ul>
+          <div className="flex gap-4 lg:gap-8">
+            <ul className="flex gap-4">
+              <li>
+                <Link href="https://about.duchi.click" passHref legacyBehavior>
+                  <StyledAnchor target="_blank" rel="noopener noreferrer">
+                    About
+                  </StyledAnchor>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" passHref legacyBehavior>
+                  <StyledAnchor isCurrentPath={isCurrentPath('/blog')}>Blog</StyledAnchor>
+                </Link>
+              </li>
+              <li>
+                <Link href="/showcase" passHref legacyBehavior>
+                  <StyledAnchor isCurrentPath={isCurrentPath('/showcase')}>Showcase</StyledAnchor>
+                </Link>
+              </li>
+            </ul>
+            <ThemeSwitcher />
+          </div>
         </nav>
       </Container>
     </header>
