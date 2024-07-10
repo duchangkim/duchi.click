@@ -47,14 +47,10 @@ const GlobalHeader = () => {
           </div>
           <ul className="flex gap-4">
             <li>
-              <Link
-                href="https://about.duchi.click"
-                rel="noopener noreferrer"
-                target="_blank"
-                passHref
-                legacyBehavior
-              >
-                <StyledAnchor>About</StyledAnchor>
+              <Link href="https://about.duchi.click" passHref legacyBehavior>
+                <StyledAnchor target="_blank" rel="noopener noreferrer">
+                  About
+                </StyledAnchor>
               </Link>
             </li>
             <li>
