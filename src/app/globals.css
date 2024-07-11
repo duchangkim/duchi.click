@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.external-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 19.5px;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    -webkit-mask: url('/assets/icons/arrow-top-right-on-square.svg') center/contain no-repeat;
+    mask: url('/assets/icons/arrow-top-right-on-square.svg') center/contain no-repeat;
+    background-color: currentColor;
+    width: 16px;
+    height: 16px;
+  }
+}

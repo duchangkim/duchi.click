@@ -1,4 +1,3 @@
-import Footer from '@/app/_components/footer';
 import GlobalHeader from '@/app/_components/global-header';
 import { HOME_OG_IMAGE_URL } from '@/lib/constants';
 import cn from 'classnames';
@@ -45,8 +44,7 @@ export default function RootLayout({
         )}
       >
         <GlobalHeader />
-        <div className="">{children}</div>
-        <Footer />
+        <div className="mt-[69px]">{children}</div>
       </body>
     </html>
   );

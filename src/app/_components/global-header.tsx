@@ -37,7 +37,7 @@ const GlobalHeader = () => {
   const isCurrentPath = (path: string) => path === pathname;
 
   return (
-    <header>
+    <header className="fixed left-0 right-0 top-0 border-b border-b-zinc-200 bg-white dark:border-b-zinc-700 dark:bg-zinc-900">
       <Container>
         <nav className="flex items-center justify-between gap-4 py-4" aria-label="Main Navigation">
           <div>
@@ -49,13 +49,6 @@ const GlobalHeader = () => {
           <div className="flex gap-4 lg:gap-8">
             <ul className="flex gap-4">
               <li>
-                <Link href="https://about.duchi.click" passHref legacyBehavior>
-                  <StyledAnchor target="_blank" rel="noopener noreferrer">
-                    About
-                  </StyledAnchor>
-                </Link>
-              </li>
-              <li>
                 <Link href="/blog" passHref legacyBehavior>
                   <StyledAnchor isCurrentPath={isCurrentPath('/blog')}>Blog</StyledAnchor>
                 </Link>
@@ -63,6 +56,13 @@ const GlobalHeader = () => {
               <li>
                 <Link href="/showcase" passHref legacyBehavior>
                   <StyledAnchor isCurrentPath={isCurrentPath('/showcase')}>Showcase</StyledAnchor>
+                </Link>
+              </li>
+              <li>
+                <Link href="https://about.duchi.click" passHref legacyBehavior>
+                  <StyledAnchor className="external-link" target="_blank" rel="noopener noreferrer">
+                    About
+                  </StyledAnchor>
                 </Link>
               </li>
             </ul>
