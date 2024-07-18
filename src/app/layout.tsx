@@ -10,13 +10,13 @@ import './globals.css';
 const inter: NextFont = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.BASE_URL || 'http://localhost:3000'),
+  metadataBase: new URL(process.env.BASE_URL || 'http://localhost:3011'),
   title: 'Duchi.',
   description: `Duchi's blog. 개발 관련 글을 읽을 수 있어요`,
   openGraph: {
     title: 'Duchi.',
     type: 'website',
-    url: process.env.BASE_URL || 'http://localhost:3000',
+    url: process.env.BASE_URL || 'http://localhost:3011',
     siteName: 'Duchi.',
     locale: 'ko_KR',
     description: `Duchi's blog. 개발 관련 글을 읽을 수 있어요`,
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: 'Duchi',
-      url: process.env.BASE_URL || 'http://localhost:3000',
+      url: process.env.BASE_URL || 'http://localhost:3011',
     },
   ],
 };

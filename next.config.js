@@ -3,7 +3,7 @@ const nextConfig = {
   output: 'standalone',
   env: {
     BASE_URL:
-      process.env.NODE_ENV === 'production' ? 'https://duchi.click' : 'http://localhost:3000',
+      process.env.NODE_ENV === 'production' ? 'https://duchi.click' : 'http://localhost:3011',
   },
 };
 
