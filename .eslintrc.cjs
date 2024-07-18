@@ -30,4 +30,7 @@ module.exports = {
   parserOptions: {
     project: './tsconfig.json',
   },
+  rules: {
+    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+  },
 };

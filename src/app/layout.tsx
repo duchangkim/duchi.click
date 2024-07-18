@@ -11,10 +11,30 @@ const inter: NextFont = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Duchi.',
-  description: `Duchi's blog. Contains development-related articles.`,
+  description: `Duchi's blog. 개발 관련 글을 읽을 수 있어요`,
   openGraph: {
-    images: [HOME_OG_IMAGE_URL],
+    title: 'Duchi.',
+    type: 'website',
+    url: 'https://duchi.click',
+    siteName: 'Duchi.',
+    locale: 'ko_KR',
+    description: `Duchi's blog. 개발 관련 글을 읽을 수 있어요`,
+    images: [
+      {
+        url: HOME_OG_IMAGE_URL,
+        alt: 'Duchi blog thumbnail',
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
+  keywords: ['김두창', 'Duchi', '개발자', '프론트엔드'],
+  authors: [
+    {
+      name: 'Duchi',
+      url: 'https://duchi.click',
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -29,10 +49,7 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
         <link rel="manifest" href="/favicon/site.webmanifest" />
-        <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000" />
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
-        <meta name="msapplication-TileColor" content="#000000" />
-        <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
         <meta name="theme-color" content="#000" />
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
