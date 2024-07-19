@@ -5,4 +5,5 @@ export const MY_LINK = {
   GITHUB: 'https://github.com/duchangkim',
   NPM: 'https://www.npmjs.com/~duchi',
   EMAIL: 'mailto:duchang.dev@gmail.com',
+  RESUME: 'https://about.duchi.click',
 } as const;

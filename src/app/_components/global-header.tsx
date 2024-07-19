@@ -2,6 +2,7 @@
 
 import Container from '@/app/_components/container';
 import { ThemeSwitcher } from '@/app/_components/theme-switcher';
+import { MY_LINK } from '@/lib/constants';
 import cn from 'classnames';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -40,13 +41,13 @@ const GlobalHeader = () => {
     <header className="fixed left-0 right-0 top-0 border-b border-b-zinc-200 bg-white dark:border-b-zinc-700 dark:bg-zinc-900">
       <Container>
         <nav className="flex items-center justify-between gap-4 py-4" aria-label="Main Navigation">
-          <div>
+          <div className="hidden sm:block">
             <Link className="text-3xl font-extrabold" href="/">
               Duchi
               <span className="text-5xl/5 font-extrabold text-green-500">.</span>
             </Link>
           </div>
-          <div className="flex gap-4 lg:gap-8">
+          <div className="flex flex-1 justify-between gap-4 sm:flex-initial lg:gap-8">
             <ul className="flex gap-4">
               <li>
                 <Link href="/blog" passHref legacyBehavior>
@@ -59,7 +60,7 @@ const GlobalHeader = () => {
                 </Link>
               </li>
               <li>
-                <Link href="https://about.duchi.click" passHref legacyBehavior>
+                <Link href={MY_LINK.RESUME} passHref legacyBehavior>
                   <StyledAnchor className="external-link" target="_blank" rel="noopener noreferrer">
                     About
                   </StyledAnchor>

@@ -2,7 +2,6 @@
 
 import styles from './switch.module.css';
 
-// import NextScript from 'next/script';
 import { MemoExoticComponent, memo, useEffect, useState } from 'react';
 
 declare global {
@@ -89,16 +88,6 @@ const Switch = () => {
   };
   return <button suppressHydrationWarning className={styles.switch} onClick={handleModeSwitch} />;
 };
-
-// const Script: MemoExoticComponent<() => JSX.Element> = memo(function Script() {
-//   return (
-//     <NextScript
-//       dangerouslySetInnerHTML={{
-//         __html: `(${NoFOUCScript.toString()})('${STORAGE_KEY}')`,
-//       }}
-//     />
-//   );
-// });
 
 const Script: MemoExoticComponent<() => JSX.Element> = memo(function Script() {
   return (
