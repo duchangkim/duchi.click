@@ -1,6 +1,4 @@
-import Alert from '@/app/_components/alert';
 import Container from '@/app/_components/container';
-import Header from '@/app/_components/header';
 import { PostBody } from '@/app/_components/post-body';
 import { PostHeader } from '@/app/_components/post-header';
 import PostNotFound from '@/app/_components/post-not-found';
@@ -18,10 +16,10 @@ export default async function Post({ params }: Params) {
   const content = await markdownToHtml(post.content || '');
 
   return (
-    <main>
-      <Alert preview={post.preview} />
+    <main className="pt-14">
+      {/* slug에서 alert 동적으로 처리하도록 수정해보기 */}
+      {/* <Alert preview={post.preview} /> */}
       <Container>
-        <Header />
         <article className="mb-32">
           <PostHeader
             title={post.title}

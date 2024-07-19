@@ -1,4 +1,5 @@
 import { format, parseISO } from 'date-fns';
+import { ko } from 'date-fns/locale';
 
 interface Props {
   dateString: string;
@@ -6,7 +7,7 @@ interface Props {
 
 const DateFormatter = ({ dateString }: Props) => {
   const date = parseISO(dateString);
-  return <time dateTime={dateString}>{format(date, 'LLLL	d, yyyy')}</time>;
+  return <time dateTime={dateString}>{format(date, 'PPP (EEE)', { locale: ko })}</time>;
 };
 
 export default DateFormatter;
