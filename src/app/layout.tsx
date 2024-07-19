@@ -57,12 +57,13 @@ export default function RootLayout({
       <body
         className={cn(
           inter.className,
+          'bg-white text-zinc-800',
           'dark:bg-zinc-900 dark:text-zinc-300',
           'flex min-h-screen flex-col',
         )}
       >
         <GlobalHeader />
-        <div className="mt-[69px]">{children}</div>
+        <div className="mt-[69px] flex h-full flex-1 flex-col">{children}</div>
       </body>
     </html>
   );

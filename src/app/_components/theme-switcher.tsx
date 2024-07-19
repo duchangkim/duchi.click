@@ -11,7 +11,7 @@ declare global {
 
 type ColorSchemePreference = 'system' | 'dark' | 'light';
 
-const STORAGE_KEY = 'nextjs-blog-starter-theme' as const;
+const STORAGE_KEY = 'duchi-blog-theme' as const;
 const modes: ColorSchemePreference[] = ['system', 'dark', 'light'];
 
 /** to reuse updateDOM function defined inside injected script */
@@ -78,7 +78,7 @@ const Switch = () => {
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, mode);
-    updateDOM();
+    updateDOM?.();
   }, [mode]);
 
   /** toggle mode */
