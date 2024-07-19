@@ -1,4 +1,5 @@
 import Container from '@/app/_components/container';
+import ScrollbarWidthSetter from '@/app/_components/use-scrollbar-width-setter';
 import { MY_LINK } from '@/lib/constants';
 
 export default function Index() {
@@ -46,6 +47,7 @@ export default function Index() {
           </ul>
         </section>
       </Container>
+      <ScrollbarWidthSetter />
     </main>
   );
 }

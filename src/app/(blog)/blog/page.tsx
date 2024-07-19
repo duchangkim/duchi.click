@@ -1,7 +1,7 @@
 import Container from '@/app/_components/container';
 import { HeroPost } from '@/app/_components/hero-post';
-import { Intro } from '@/app/_components/intro';
 import { MoreStories } from '@/app/_components/more-stories';
+import ScrollbarWidthSetter from '@/app/_components/use-scrollbar-width-setter';
 import { getAllPosts } from '@/lib/api';
 
 export default function Index() {
@@ -12,9 +12,8 @@ export default function Index() {
   const morePosts = allPosts.slice(1);
 
   return (
-    <main>
+    <main className="pt-14">
       <Container>
-        <Intro />
         <HeroPost
           title={heroPost.title}
           coverImage={heroPost.coverImage}
@@ -25,6 +24,7 @@ export default function Index() {
         />
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}
       </Container>
+      <ScrollbarWidthSetter />
     </main>
   );
 }

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  --scrollbar-width: 15px;
+}
+
 .external-link {
   display: inline-flex;
   align-items: center;
