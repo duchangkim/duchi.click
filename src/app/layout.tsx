@@ -53,6 +53,10 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
         <meta name="theme-color" content="#000" />
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+        <meta
+          name="google-site-verification"
+          content="wRubK4pblzCl1UC8BZM-2uvrr-x5VuNRE-z2iVQ2mPs"
+        />
       </head>
       <body
         className={cn(
