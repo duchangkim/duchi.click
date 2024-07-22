@@ -6,6 +6,7 @@ export interface Post {
   excerpt: string;
   ogImage: {
     url: string;
+    alt: string;
   };
   content: string;
   preview?: boolean;
@@ -13,4 +14,5 @@ export interface Post {
     message: string;
     shows: boolean;
   };
+  description: string;
 }

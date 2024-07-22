@@ -48,9 +48,16 @@ export function generateMetadata({ params }: Params): Metadata | undefined {
 
   return {
     title,
+    description: post.description,
     openGraph: {
       title,
-      images: [post.ogImage.url],
+      description: post.description,
+      images: [
+        {
+          url: post.ogImage.url,
+          alt: post.ogImage.alt || '',
+        },
+      ],
     },
   };
 }
