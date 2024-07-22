@@ -44,7 +44,7 @@ export function generateMetadata({ params }: Params): Metadata | undefined {
     return;
   }
 
-  const title = `${post.title} | Duchi.`;
+  const title = `${post.title} | Duchi. blog`;
 
   return {
     title,
