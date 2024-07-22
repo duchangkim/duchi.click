@@ -7,6 +7,12 @@ import ScrollbarWidthSetter from '@/app/_components/use-scrollbar-width-setter';
 import { getAllPosts, getPostBySlug } from '@/lib/api';
 import markdownToHtml from '@/lib/markdownToHtml';
 import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
+import { ComponentType } from 'react';
+
+const Comments: ComponentType<{}> = dynamic(() => import('@/app/_components/comments'), {
+  ssr: false,
+});
 
 export default async function Post({ params }: Params) {
   const post = getPostBySlug(params.slug);
@@ -25,6 +31,9 @@ export default async function Post({ params }: Params) {
           <PostHeader title={post.title} coverImage={post.coverImage} date={post.date} />
           <PostBody content={content} />
         </article>
+        <section className="mx-auto flex max-w-[42rem] pb-14">
+          <Comments />
+        </section>
       </Container>
       <ScrollbarWidthSetter />
     </main>
