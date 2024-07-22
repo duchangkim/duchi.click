@@ -9,4 +9,8 @@ export interface Post {
   };
   content: string;
   preview?: boolean;
+  alert?: {
+    message: string;
+    shows: boolean;
+  };
 }

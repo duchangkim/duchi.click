@@ -38,7 +38,7 @@ const GlobalHeader = () => {
   const isCurrentPath = (path: string) => path === pathname;
 
   return (
-    <header className="fixed left-0 right-0 top-0 border-b border-b-zinc-200 bg-white pr-[var(--scrollbar-width)] dark:border-b-zinc-700 dark:bg-zinc-900">
+    <header className="fixed left-0 right-0 top-0 z-50 border-b border-b-zinc-200 bg-white pr-[var(--scrollbar-width)] dark:border-b-zinc-700 dark:bg-zinc-900">
       <Container>
         <nav className="flex items-center justify-between gap-4 py-4" aria-label="Main Navigation">
           <div className="hidden sm:block">
