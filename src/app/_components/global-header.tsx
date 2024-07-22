@@ -35,7 +35,15 @@ StyledAnchor.displayName = 'StyledAnchor';
 const GlobalHeader = () => {
   const pathname = usePathname();
 
-  const isCurrentPath = (path: string) => path === pathname;
+  const isCurrentPath = (path: string) => {
+    const [, firstPathName] = pathname.split('/');
+
+    if (firstPathName === 'posts') {
+      return path === '/blog';
+    }
+
+    return pathname === path;
+  };
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-b-zinc-200 bg-white pr-[var(--scrollbar-width)] dark:border-b-zinc-700 dark:bg-zinc-900">
