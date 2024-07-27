@@ -11,6 +11,8 @@ module.exports = {
     '@duchi/eslint-config/index',
     // React용 ESLint 컨피그 불러오기
     '@duchi/eslint-config/mixins/react',
+    // Next.js ESLint
+    'plugin:@next/next/recommended',
   ],
   settings: {
     react: {
