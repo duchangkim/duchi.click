@@ -10,11 +10,11 @@
 }
 
 .markdown h2 {
-  @apply mb-4 mt-12 text-3xl leading-snug;
+  @apply mb-4 mt-12 text-3xl leading-snug dark:text-white;
 }
 
 .markdown h3 {
-  @apply mb-4 mt-8 text-2xl leading-snug;
+  @apply mb-4 mt-8 text-2xl leading-snug dark:text-white;
 }
 
 .markdown ul {
@@ -23,4 +23,48 @@
 
 .markdown strong {
   @apply dark:text-white;
+}
+
+.markdown a {
+  @apply text-blue-500;
+
+  &:hover {
+    @apply underline;
+  }
+
+  &:active {
+    @apply text-blue-700;
+  }
+
+  &[target='_blank'] {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+
+    &::after {
+      content: '';
+      display: inline-block;
+      -webkit-mask: url('/assets/icons/arrow-top-right-on-square.svg') center/contain no-repeat;
+      mask: url('/assets/icons/arrow-top-right-on-square.svg') center/contain no-repeat;
+      background-color: currentColor;
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+}
+
+.markdown blockquote {
+  @apply border-l-4 border-zinc-300 pl-4 italic dark:border-zinc-600;
+}
+
+.markdown code {
+  @apply rounded-md bg-zinc-200 bg-opacity-70 px-1 py-0.5 font-mono dark:bg-zinc-700 dark:bg-opacity-80;
+
+  &::before {
+    content: '`';
+  }
+
+  &::after {
+    content: '`';
+  }
 }
