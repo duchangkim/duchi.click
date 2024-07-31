@@ -5,7 +5,7 @@ import { PostHeader } from '@/app/_components/post-header';
 import PostNotFound from '@/app/_components/post-not-found';
 import ScrollbarWidthSetter from '@/app/_components/use-scrollbar-width-setter';
 import { getAllPosts, getPostBySlug } from '@/lib/api';
-import markdownToHtml from '@/lib/markdownToHtml';
+import { markdownToHtml } from '@/lib/markdownToHtml';
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { ComponentType } from 'react';
