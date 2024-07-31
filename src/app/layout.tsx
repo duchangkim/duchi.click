@@ -1,5 +1,5 @@
 import GlobalHeader from '@/app/_components/global-header';
-import { HOME_OG_IMAGE_URL } from '@/lib/constants';
+import { HOME_OG_IMAGE_URL, MY_LINK } from '@/lib/constants';
 import cn from 'classnames';
 import type { Metadata } from 'next';
 import { NextFont } from 'next/dist/compiled/@next/font';
@@ -46,6 +46,13 @@ export default function RootLayout({
   return (
     <html lang="ko" className="pr-[var(--scrollbar-width)]">
       <head>
+        <link rel="dns-prefetch" href={MY_LINK.RESUME} />
+        <link rel="preconnect" href={MY_LINK.RESUME} />
+        <link rel="dns-prefetch" href={MY_LINK.NOTION_RESUME.BASE} />
+        <link rel="preconnect" href={MY_LINK.NOTION_RESUME.BASE} />
+        <link rel="dns-prefetch" href={MY_LINK.CLOUD.BASE} />
+        <link rel="preconnect" href={MY_LINK.CLOUD.BASE} />
+
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
