@@ -46,11 +46,8 @@ export default function RootLayout({
   return (
     <html lang="ko" className="pr-[var(--scrollbar-width)]">
       <head>
-        <link rel="dns-prefetch" href={MY_LINK.RESUME} />
         <link rel="preconnect" href={MY_LINK.RESUME} />
-        <link rel="dns-prefetch" href={MY_LINK.NOTION_RESUME.BASE} />
         <link rel="preconnect" href={MY_LINK.NOTION_RESUME.BASE} />
-        <link rel="dns-prefetch" href={MY_LINK.CLOUD.BASE} />
         <link rel="preconnect" href={MY_LINK.CLOUD.BASE} />
 
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
