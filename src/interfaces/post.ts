@@ -15,4 +15,5 @@ export interface Post {
     shows: boolean;
   };
   description: string;
+  keywords?: string;
 }

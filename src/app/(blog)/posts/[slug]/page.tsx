@@ -54,10 +54,12 @@ export function generateMetadata({ params }: Params): Metadata | undefined {
   }
 
   const title = `${post.title} | Duchi. blog`;
+  const keywords = post.keywords || '';
 
   return {
     title,
     description: post.description,
+    keywords: keywords.split(','),
     openGraph: {
       title,
       description: post.description,
