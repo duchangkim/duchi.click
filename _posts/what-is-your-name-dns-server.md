@@ -7,6 +7,7 @@ date: '2024-07-31T09:02:41.613Z'
 ogImage:
   url: '/assets/blog/what-is-your-name-dns-server/cover.png'
   alt: 'DNS 서버 이미지'
+keywords: 'DNS,DNS 서버,최적화'
 ---
 
 최근 홈서버를 구축하면서 여러 가지 새로운 경험을 했습니다. 그 중 DNS(Domain Name System, 도메인 이름 시스템)에 대해 이야기해보고자 합니다.
