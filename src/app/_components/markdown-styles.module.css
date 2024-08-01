@@ -21,6 +21,10 @@
   @apply list-disc pl-4;
 }
 
+.markdown ol {
+  @apply list-decimal pl-4;
+}
+
 .markdown strong {
   @apply dark:text-white;
 }
@@ -76,4 +80,13 @@
 
 .markdown pre [data-line] {
   @apply px-4;
+}
+
+.markdown table {
+  @apply table-auto;
+
+  & th,
+  & td {
+    @apply border border-zinc-300 px-3 py-1 dark:border-zinc-600;
+  }
 }

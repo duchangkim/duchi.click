@@ -6,6 +6,7 @@ import rehypeStringify from 'rehype-stringify';
 import rehypeFormat from 'rehype-format';
 import rehypePrettyCode from 'rehype-pretty-code';
 import { transformerCopyButton } from '@rehype-pretty/transformers';
+import remarkGfm from 'remark-gfm';
 
 export async function markdownToHtml(markdown: string) {
   const file = await unified()
@@ -29,6 +30,7 @@ export async function markdownToHtml(markdown: string) {
         return href?.startsWith('http') ? '_blank' : '_self';
       },
     })
+    .use(remarkGfm)
     .use(rehypeFormat)
     .use(rehypeStringify)
     .process(markdown);
