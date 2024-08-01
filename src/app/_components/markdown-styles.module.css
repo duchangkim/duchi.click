@@ -57,8 +57,8 @@
   @apply border-l-4 border-zinc-300 pl-4 italic dark:border-zinc-600;
 }
 
-.markdown code {
-  @apply rounded-md bg-zinc-200 bg-opacity-70 px-1 py-0.5 font-mono dark:bg-zinc-700 dark:bg-opacity-80;
+.markdown p code {
+  @apply rounded-md bg-zinc-200 bg-opacity-70 px-1 py-0.5 font-mono text-zinc-700 dark:bg-zinc-700 dark:bg-opacity-80 dark:text-zinc-100 !important;
 
   &::before {
     content: '`';
@@ -67,4 +67,13 @@
   &::after {
     content: '`';
   }
+}
+
+.markdown pre {
+  @apply overflow-x-auto rounded-md px-1 py-4;
+  font-size: 16px;
+}
+
+.markdown pre [data-line] {
+  @apply px-4;
 }
