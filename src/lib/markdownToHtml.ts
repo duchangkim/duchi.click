@@ -1,12 +1,12 @@
-import { unified } from 'unified';
-import remarkParse from 'remark-parse';
-import remarkRehype from 'remark-rehype';
+import { transformerCopyButton } from '@rehype-pretty/transformers';
 import rehypeExternalLinks from 'rehype-external-links';
-import rehypeStringify from 'rehype-stringify';
 import rehypeFormat from 'rehype-format';
 import rehypePrettyCode from 'rehype-pretty-code';
-import { transformerCopyButton } from '@rehype-pretty/transformers';
+import rehypeStringify from 'rehype-stringify';
 import remarkGfm from 'remark-gfm';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import { unified } from 'unified';
 
 export async function markdownToHtml(markdown: string) {
   const file = await unified()
