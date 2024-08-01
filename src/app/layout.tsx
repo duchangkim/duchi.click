@@ -46,9 +46,9 @@ export default function RootLayout({
   return (
     <html lang="ko" className="pr-[var(--scrollbar-width)]">
       <head>
-        <link rel="preconnect" href={MY_LINK.RESUME} />
-        <link rel="preconnect" href={MY_LINK.NOTION_RESUME.BASE} />
-        <link rel="preconnect" href={MY_LINK.CLOUD.BASE} />
+        <link rel="preconnect" href={MY_LINK.RESUME} crossOrigin="anonymous" />
+        <link rel="preconnect" href={MY_LINK.NOTION_RESUME.BASE} crossOrigin="anonymous" />
+        <link rel="preconnect" href={MY_LINK.CLOUD.BASE} crossOrigin="anonymous" />
 
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
