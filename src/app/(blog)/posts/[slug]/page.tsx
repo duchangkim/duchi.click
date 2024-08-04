@@ -24,7 +24,7 @@ export default async function Post({ params }: Params) {
   const content = await markdownToHtml(post.content || '');
 
   return (
-    <main className="pt-14">
+    <main data-pagefind-body className="pt-14">
       {post.alert?.shows && <Alert message={post.alert?.message} />}
       <Container>
         <article className="mb-32">

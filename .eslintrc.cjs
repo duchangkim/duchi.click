@@ -31,6 +31,7 @@ module.exports = {
    */
   parserOptions: {
     project: './tsconfig.json',
+    sourceType: 'module',
   },
   rules: {
     // next.js의 metadata 등등 함께 export 해야하는 경우가 있어서 off로 설정합니다.
