@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "next",
-    "update-pagefind-mock": "npm run build && pagefind --site .next --output-path src/mock/pagefind",
+    "update-pagefind-mock": "next build && rm -rf src/mock && pagefind --site .next/standalone --output-path src/mock/pagefind",
     "pagefind:cp": "mkdir -p .next/static/chunks/app && cp -r src/mock/pagefind .next/static/chunks/app/pagefind",
     "start:pagefind": "wait-on http://localhost:3000 && npm run pagefind:cp",
     "pagefind:dev": "concurrently \"npm run dev\" \"npm run start:pagefind\"",
