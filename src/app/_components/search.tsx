@@ -77,11 +77,11 @@ export const Search = () => {
         <div className="pointer-events-none fixed left-0 top-0 z-auto flex h-full w-full justify-center">
           <div
             role="dialog"
-            className="pointer-events-auto mt-[100px] flex h-fit max-h-[80%] min-w-[80%] max-w-[80%] flex-col overflow-y-auto rounded-md border border-zinc-600 bg-white shadow-md dark:border-zinc-700 dark:bg-neutral-900 lg:min-w-[60%] lg:max-w-[60%]"
+            className="pointer-events-auto mb-[100px] mt-[100px] flex h-fit max-h-[80%] min-w-[80%] max-w-[80%] flex-col overflow-y-auto rounded-md border border-zinc-600 bg-white shadow-md dark:border-zinc-700 dark:bg-neutral-900 lg:min-w-[60%] lg:max-w-[60%]"
           >
             <div className="sticky top-0 bg-white p-5 dark:bg-neutral-900">
               <input
-                className="w-full rounded-md border border-zinc-200 bg-transparent px-2 py-1.5 outline-none focus:border-green-500 dark:border-zinc-700"
+                className="w-full rounded-md border border-zinc-200 bg-transparent px-2 py-1.5 text-lg outline-none focus:border-green-500 dark:border-zinc-700"
                 type="text"
                 placeholder="Search"
                 value={keyword}
