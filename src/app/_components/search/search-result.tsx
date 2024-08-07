@@ -1,7 +1,7 @@
 'use client';
 
-import highlightStyles from './text-highlight.module.css';
-
+import { useSearchContext } from '@/app/_components/search/use-search-context';
+import highlightStyles from '@/app/_components/text-highlight.module.css';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -46,6 +46,7 @@ export interface SearchResultProps {
 export const PAGEFIND_SEARCH_RESULT_BASE_URL = '/_next/static/chunks/app/.next/server/app' as const;
 
 export const SearchResult = ({ ...result }: SearchResultProps) => {
+  const [, setShowsSearch] = useSearchContext();
   const [data, setData] = useState<SearchResultData>();
 
   const convertURL = (url: string) => {
@@ -53,6 +54,10 @@ export const SearchResult = ({ ...result }: SearchResultProps) => {
     const [resultPath] = resultPathWithExtension.split('.');
 
     return resultPath;
+  };
+
+  const handleResultClick = () => {
+    setShowsSearch(false);
   };
 
   useEffect(() => {
@@ -71,7 +76,7 @@ export const SearchResult = ({ ...result }: SearchResultProps) => {
   if (!data) return null;
 
   return (
-    <Link href={convertURL(data.url)}>
+    <Link href={convertURL(data.url)} onClick={handleResultClick}>
       <h3 className="mb-2 text-lg font-semibold dark:text-white">{data.meta.title}</h3>
       <p
         className={classNames(highlightStyles.highlightWrapper, 'after:pl-1 after:content-["..."]')}

@@ -8,11 +8,12 @@ declare global {
 }
 
 import { GlobalPortal } from '@/app/_components/global-portal';
-import { SearchResult } from '@/app/_components/search-result';
+import { SearchResult } from '@/app/_components/search/search-result';
+import { useSearchContext } from '@/app/_components/search/use-search-context';
 import { ChangeEvent, useEffect, useState } from 'react';
 
 export const Search = () => {
-  const [showsSearch, setShowsSearch] = useState(true);
+  const [showsSearch, setShowsSearch] = useSearchContext();
   const [keyword, setKeyword] = useState('');
   const [results, setResults] = useState<any>([]);
 

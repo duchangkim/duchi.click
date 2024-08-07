@@ -1,6 +1,7 @@
 import GlobalHeader from '@/app/_components/global-header';
 import { GlobalPortal } from '@/app/_components/global-portal';
-import { Search } from '@/app/_components/search';
+import { Search } from '@/app/_components/search/search';
+import { SearchContextProvider } from '@/app/_components/search/search-context-provider';
 import { HOME_OG_IMAGE_URL, MY_LINK } from '@/lib/constants';
 import cn from 'classnames';
 import type { Metadata } from 'next';
@@ -73,9 +74,11 @@ export default function RootLayout({
         )}
       >
         <GlobalPortal.Provider>
-          <GlobalHeader />
-          <Search />
-          <div className="mt-[69px] flex h-full flex-1 flex-col">{children}</div>
+          <SearchContextProvider>
+            <GlobalHeader />
+            <Search />
+            <div className="mt-[69px] flex h-full flex-1 flex-col">{children}</div>
+          </SearchContextProvider>
         </GlobalPortal.Provider>
       </body>
     </html>
