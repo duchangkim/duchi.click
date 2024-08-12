@@ -4,7 +4,7 @@ import { MY_LINK } from '@/lib/constants';
 
 export default function Index() {
   return (
-    <main>
+    <main data-pagefind-body>
       <Container>
         <section className="pt-10">
           <h1 className="mb-3 text-xl font-bold">안녕하세요, 김두창입니다</h1>
