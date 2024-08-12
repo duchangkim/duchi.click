@@ -10,12 +10,38 @@ declare global {
 import { GlobalPortal } from '@/app/_components/global-portal';
 import { SearchResult } from '@/app/_components/search/search-result';
 import { useSearchContext } from '@/app/_components/search/use-search-context';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { useKeyboardShortcut } from '@/hooks/use-keyboard-shortcut';
+import classNames from 'classnames';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 
 export const Search = () => {
   const [showsSearch, setShowsSearch] = useSearchContext();
   const [keyword, setKeyword] = useState('');
   const [results, setResults] = useState<any>([]);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const firstAutoFocusRef = useRef<boolean>(true);
+
+  useKeyboardShortcut({
+    triggerKey: '/',
+    behavior: () => {
+      if (showsSearch) {
+        return;
+      }
+
+      setShowsSearch(true);
+    },
+  });
+
+  useKeyboardShortcut({
+    triggerKey: 'Escape',
+    behavior: () => {
+      if (!showsSearch) {
+        return;
+      }
+
+      setShowsSearch(false);
+    },
+  });
 
   const handleSearchKeywordChange = async (e: ChangeEvent<HTMLInputElement>) => {
     const keyword = e.target.value;
@@ -25,6 +51,8 @@ export const Search = () => {
       const searchResult = await window.pagefind.debouncedSearch(keyword);
 
       if (searchResult === null) {
+        setResults([]);
+
         return;
       }
 
@@ -60,17 +88,32 @@ export const Search = () => {
         });
 
         window.pagefind.init();
+
+        firstAutoFocusRef.current = false;
       })
       .catch(() => {});
   }, []);
 
-  if (!showsSearch) {
-    return null;
-  }
+  useEffect(() => {
+    if (!showsSearch) {
+      setKeyword('');
+      setResults([]);
+      return;
+    }
+
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 0);
+  }, [showsSearch]);
 
   return (
     <GlobalPortal.Consumer>
-      <div className="overlay-container">
+      <div
+        className={classNames({
+          hidden: !showsSearch,
+        })}
+        aria-hidden={!showsSearch}
+      >
         <div
           className="fixed left-0 top-0 z-auto h-full w-full bg-zinc-900 bg-opacity-80"
           onClick={handleBackdropClick}
@@ -82,12 +125,12 @@ export const Search = () => {
           >
             <div className="sticky top-0 bg-white p-5 dark:bg-neutral-900">
               <input
+                ref={inputRef}
                 className="w-full rounded-md border border-zinc-200 bg-transparent px-2 py-1.5 text-lg outline-none focus:border-green-500 dark:border-zinc-700"
                 type="text"
                 placeholder="Search"
                 value={keyword}
                 onChange={handleSearchKeywordChange}
-                autoFocus
               />
             </div>
             {results && results.length > 0 && (

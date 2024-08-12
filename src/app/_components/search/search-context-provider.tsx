@@ -19,7 +19,7 @@ export const SearchContext: Context<SearchContextValue | undefined> = createCont
 });
 
 export const SearchContextProvider = ({ children }: SearchContextProviderProps) => {
-  const [shows, setShows] = useState(true);
+  const [shows, setShows] = useState(false);
 
   return <SearchContext.Provider value={{ shows, setShows }}>{children}</SearchContext.Provider>;
 };

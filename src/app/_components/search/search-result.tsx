@@ -64,8 +64,6 @@ export const SearchResult = ({ ...result }: SearchResultProps) => {
     const fetchData = async () => {
       const data = await result.data();
       setData(data);
-
-      console.log(data);
     };
 
     fetchData()

@@ -76,8 +76,8 @@ export default function RootLayout({
         <GlobalPortal.Provider>
           <SearchContextProvider>
             <GlobalHeader />
-            <Search />
             <div className="mt-[69px] flex h-full flex-1 flex-col">{children}</div>
+            <Search />
           </SearchContextProvider>
         </GlobalPortal.Provider>
       </body>
