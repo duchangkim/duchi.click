@@ -137,7 +137,7 @@ export const Search = () => {
               <ul className="flex flex-col gap-4 px-5 pb-5">
                 {results.map((result: any) => (
                   <li
-                    className="w-full rounded-md border border-zinc-200 px-2 py-1.5 hover:bg-zinc-100 dark:border-zinc-700 dark:hover:bg-neutral-800"
+                    className="min-h-[100px] w-full rounded-md border border-zinc-200 px-2 py-1.5 hover:bg-zinc-100 dark:border-zinc-700 dark:hover:bg-neutral-800"
                     key={result.id}
                   >
                     <SearchResult {...result} />
