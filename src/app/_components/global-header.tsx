@@ -47,16 +47,17 @@ const GlobalHeader = () => {
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-b-zinc-200 bg-white pr-[var(--scrollbar-width)] dark:border-b-zinc-700 dark:bg-zinc-900">
-      <Container>
+      <Container className="xs:px-5 px-0 pl-5">
         <nav className="flex items-center justify-between gap-4 py-4" aria-label="Main Navigation">
-          <div className="hidden sm:block">
+          <div className="">
             <Link className="text-3xl font-extrabold" href="/">
-              Duchi
+              <span>D</span>
+              <span className="xs:inline hidden">uchi</span>
               <span className="text-5xl/5 font-extrabold text-green-500">.</span>
             </Link>
           </div>
-          <div className="flex flex-1 justify-between gap-4 sm:flex-initial lg:gap-8">
-            <ul className="flex gap-4">
+          <div className="xs:gap-4 flex items-center gap-3 lg:gap-8">
+            <ul className="xs:flex hidden gap-4">
               <li>
                 <Link href="/blog" passHref legacyBehavior>
                   <StyledAnchor isCurrentPath={isCurrentPath('/blog')}>Blog</StyledAnchor>
@@ -75,7 +76,17 @@ const GlobalHeader = () => {
                 </Link>
               </li>
             </ul>
+
             <ThemeSwitcher />
+
+            <button className="xs:hidden flex h-[26px] w-[26px] items-center justify-center">
+              <div className="flex h-[14px] w-[16px] flex-col items-center justify-between">
+                {new Array(3).fill(null).map((_, i) => (
+                  <span className="h-0.5 w-full rounded-sm bg-zinc-900" key={i}></span>
+                ))}
+                <span className="sr-only">Menu</span>
+              </div>
+            </button>
           </div>
         </nav>
       </Container>

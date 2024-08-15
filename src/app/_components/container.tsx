@@ -1,9 +1,16 @@
-interface Props {
+import classNames from 'classnames';
+import { HTMLAttributes } from 'react';
+
+interface Props extends HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
 }
 
-const Container = ({ children }: Props) => {
-  return <div className="container mx-auto px-5">{children}</div>;
+const Container = ({ children, className, ...props }: Props) => {
+  return (
+    <div className={classNames('container mx-auto px-5', className)} {...props}>
+      {children}
+    </div>
+  );
 };
 
 export default Container;

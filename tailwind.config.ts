@@ -1,4 +1,5 @@
-import type { Config } from 'tailwindcss';
+import { type Config } from 'tailwindcss';
+import { screens } from 'tailwindcss/defaultTheme';
 
 const config: Config = {
   darkMode: ['class', "[class~='dark']"],
@@ -9,6 +10,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        ...screens,
+        xs: '475px',
+      },
       container: {
         screens: {
           sm: '640px',
