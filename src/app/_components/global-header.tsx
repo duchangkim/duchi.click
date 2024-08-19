@@ -2,6 +2,7 @@
 
 import Container from '@/app/_components/container';
 import { GlobalPortal } from '@/app/_components/global-portal';
+import { SearchButton } from '@/app/_components/search/search-button';
 import { ThemeSwitcher } from '@/app/_components/theme-switcher';
 import { MY_LINK } from '@/lib/constants';
 import classNames from 'classnames';
@@ -99,10 +100,15 @@ const GlobalHeader = () => {
           <div className="">
             <Link className="text-3xl font-extrabold" href="/">
               <span>D</span>
-              <span className="hidden xs:inline">uchi</span>
+              <span className="hidden sm:inline">uchi</span>
               <span className="text-5xl/5 font-extrabold text-green-500">.</span>
             </Link>
           </div>
+
+          <div className="ml-auto xs:mr-3">
+            <SearchButton />
+          </div>
+
           <div className="flex items-center gap-3 xs:gap-4 lg:gap-8">
             <ul className="hidden gap-4 xs:flex">
               <li>
