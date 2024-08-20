@@ -11,7 +11,8 @@
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx,.js --fix",
     "format": "prettier --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "lintStaged": "lint-staged"
   },
   "type": "module",
   "lint-staged": {
