@@ -37,4 +37,5 @@ module.exports = {
     // next.js의 metadata 등등 함께 export 해야하는 경우가 있어서 off로 설정합니다.
     'react-refresh/only-export-components': "off",
   },
+  ignorePatterns: ['next.config.js'],
 };

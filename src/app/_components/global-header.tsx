@@ -78,6 +78,10 @@ const GlobalHeader = () => {
       return path === '/blog';
     }
 
+    if (firstPathName === 'items') {
+      return path === '/showcase';
+    }
+
     return pathname === path;
   };
 
