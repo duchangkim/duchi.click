@@ -35,7 +35,24 @@ module.exports = {
   },
   rules: {
     // next.js의 metadata 등등 함께 export 해야하는 경우가 있어서 off로 설정합니다.
-    'react-refresh/only-export-components': "off",
+    'react-refresh/only-export-components': 'off',
   },
-  ignorePatterns: ['next.config.js'],
+  ignorePatterns: ['next.config.js', 'src/mock/**.*'],
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      parserOptions: {
+        project: './tsconfig.json',
+      },
+      rules: {
+        '@typescript-eslint/naming-convention': 'error',
+      },
+    },
+    {
+      files: ['*.js'],
+      rules: {
+        '@typescript-eslint/naming-convention': 'off',
+      },
+    },
+  ],
 };

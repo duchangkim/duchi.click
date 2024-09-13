@@ -5,7 +5,7 @@ import DateFormatter from '@/app/_components/date-formatter';
 import markdownStyles from '@/app/_components/markdown-styles.module.css';
 import { PostTitle } from '@/app/_components/post-title';
 import ScrollbarWidthSetter from '@/app/_components/use-scrollbar-width-setter';
-import { getAllShowcases, getShowcaseItemBySlug } from '@/lib/showcase-api';
+import { getShowcaseItemBySlug } from '@/lib/showcase-api';
 import { Metadata } from 'next';
 import { compileMDX } from 'next-mdx-remote/rsc';
 
@@ -81,10 +81,10 @@ export function generateMetadata({ params }: Params): Metadata | undefined {
   };
 }
 
-export async function generateStaticParams() {
-  const showcases = getAllShowcases();
+// export async function generateStaticParams() {
+//   const showcases = getAllShowcases();
 
-  return showcases.map((showcaseItem) => ({
-    slug: showcaseItem.slug,
-  }));
-}
+//   return showcases.map((showcaseItem) => ({
+//     slug: showcaseItem.slug,
+//   }));
+// }
