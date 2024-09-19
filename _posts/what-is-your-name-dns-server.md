@@ -2,7 +2,7 @@
 title: '너 이름이 뭐니: DNS 서버'
 description: '이 글에서는 DNS(Domain Name System)의 기본 개념과 작동 원리에 대해 간단히 설명합니다. 프론트엔드 개발자가 사용자 경험을 개선할 수 있는 최적화 방법도 확인할 수 있습니다.'
 excerpt: ''
-coverImage: '/assets/blog/what-is-your-name-dns-server/cover.png'
+coverImage: '/assets/blog/what-is-your-name-dns-server/cover.webp'
 date: '2024-07-31T09:02:41.613Z'
 ogImage:
   url: '/assets/blog/what-is-your-name-dns-server/cover.png'

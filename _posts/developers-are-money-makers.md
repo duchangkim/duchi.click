@@ -2,10 +2,10 @@
 title: '개발자는 돈을 버는 사람이다'
 description: '멋진 코드와 비즈니스 가치, 개발자의 역할에 대해 이야기합니다. 여러분의 생각은 어떠신가요?'
 excerpt: ''
-coverImage: '/assets/blog/developers-are-money-makers/cover.png'
+coverImage: '/assets/blog/developers-are-money-makers/cover.webp'
 date: '2024-07-22T05:10:13.264Z'
 ogImage:
-  url: '/assets/blog/developers-are-money-makers/cover.png'
+  url: '/assets/blog/developers-are-money-makers/og.png'
   alt: '정장을 입은 개발자가 앉아 코드를 작성하는 이미지'
 ---
 
