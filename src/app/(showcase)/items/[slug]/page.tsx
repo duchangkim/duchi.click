@@ -1,13 +1,18 @@
 import Alert from '@/app/_components/alert';
-import Comments from '@/app/_components/comments';
 import Container from '@/app/_components/container';
 import DateFormatter from '@/app/_components/date-formatter';
 import markdownStyles from '@/app/_components/markdown-styles.module.css';
 import { PostTitle } from '@/app/_components/post-title';
 import ScrollbarWidthSetter from '@/app/_components/use-scrollbar-width-setter';
-import { getShowcaseItemBySlug } from '@/lib/showcase-api';
+import { getAllShowcases, getShowcaseItemBySlug } from '@/lib/showcase-api';
 import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import { compileMDX } from 'next-mdx-remote/rsc';
+import { ComponentType } from 'react';
+
+const Comments: ComponentType<{}> = dynamic(() => import('@/app/_components/comments'), {
+  ssr: false,
+});
 
 interface Params {
   params: {
@@ -81,10 +86,13 @@ export function generateMetadata({ params }: Params): Metadata | undefined {
   };
 }
 
-// export async function generateStaticParams() {
-//   const showcases = getAllShowcases();
+/**
+ * page find를 위한 SSG
+ */
+export async function generateStaticParams() {
+  const showcases = getAllShowcases();
 
-//   return showcases.map((showcaseItem) => ({
-//     slug: showcaseItem.slug,
-//   }));
-// }
+  return showcases.map((showcaseItem) => ({
+    slug: showcaseItem.slug,
+  }));
+}
