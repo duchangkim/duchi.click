@@ -2,10 +2,10 @@
 title: '사이트 간 이동을 조금 더 빠르게'
 description: '웹 사이트 간 이동 속도를 최적화하는 방법을 소개합니다. 프론트엔드 성능 향상을 위한 DNS-prefetch와 preconnect 활용법을 알아보세요.'
 excerpt: ''
-coverImage: '/assets/blog/move-between-sites-faster/cover.webp'
+coverImage: 'https://assets.duchi.click/blog/post/move-between-sites-faster/cover.webp'
 date: '2024-08-01T09:57:21.546Z'
 ogImage:
-  url: '/assets/blog/move-between-sites-faster/cover.png'
+  url: 'https://assets.duchi.click/blog/post/move-between-sites-faster/cover.png'
   alt: '마우스 커서 그림'
 keywords: '웹 성능 최적화,최적화,DNS-prefetch,preconnect'
 ---

@@ -8,6 +8,14 @@ const nextConfig = {
       process.env.NODE_ENV === 'production' ? 'https://duchi.click' : 'http://localhost:3011',
   },
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'assets.duchi.click',
+      },
+    ],
+  },
 };
 
 const withMDX = createMDX();
