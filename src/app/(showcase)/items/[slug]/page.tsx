@@ -6,21 +6,23 @@ import { PostTitle } from '@/app/_components/post-title';
 import ScrollbarWidthSetter from '@/app/_components/use-scrollbar-width-setter';
 import { getAllShowcases, getShowcaseItemBySlug } from '@/lib/showcase-api';
 import { Metadata } from 'next';
-import dynamic from 'next/dynamic';
 import { compileMDX } from 'next-mdx-remote/rsc';
-import { ComponentType } from 'react';
+import { JSX, LazyExoticComponent, lazy } from 'react';
 
-const Comments: ComponentType<{}> = dynamic(() => import('@/app/_components/comments'), {
-  ssr: false,
-});
+const Comments: LazyExoticComponent<() => JSX.Element> = lazy(() =>
+  import('@/app/_components/comments').then((mod) => ({
+    default: mod.default,
+  })),
+);
 
 interface Params {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export default async function ShowcaseItemPage({ params }: Params) {
+export default async function ShowcaseItemPage(props: Params) {
+  const params = await props.params;
   const showcaseItem = getShowcaseItemBySlug(params.slug);
 
   if (!showcaseItem) {
@@ -59,7 +61,8 @@ export default async function ShowcaseItemPage({ params }: Params) {
   );
 }
 
-export function generateMetadata({ params }: Params): Metadata | undefined {
+export async function generateMetadata(props: Params): Promise<Metadata | undefined> {
+  const params = await props.params;
   const showcaseItem = getShowcaseItemBySlug(params.slug);
 
   if (!showcaseItem) {

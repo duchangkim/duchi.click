@@ -9,7 +9,13 @@ const getMode = (): string => {
 };
 
 export const useTheme = () => {
-  const [mode, setMode] = useState(getMode());
+  const [mode, setMode] = useState(() => {
+    // 브라우저 환경인지 확인
+    if (typeof window === 'undefined') {
+      return 'light'; // 서버에서는 기본값으로 'light' 반환
+    }
+    return getMode();
+  });
 
   useEffect(() => {
     const observer = new MutationObserver((mutations) => {

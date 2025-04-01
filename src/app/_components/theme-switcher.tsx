@@ -2,7 +2,7 @@
 
 import styles from './switch.module.css';
 
-import { MemoExoticComponent, memo, useEffect, useState } from 'react';
+import { type JSX, MemoExoticComponent, memo, useEffect, useState } from 'react';
 
 declare global {
   // eslint-disable-next-line no-var
@@ -13,8 +13,6 @@ type ColorSchemePreference = 'system' | 'dark' | 'light';
 
 const STORAGE_KEY = 'duchi-blog-theme' as const;
 const modes: ColorSchemePreference[] = ['system', 'dark', 'light'];
-
-/** to reuse updateDOM function defined inside injected script */
 
 /** function to be injected in script tag for avoiding FOUC (Flash of Unstyled Content) */
 export const NoFOUCScript = (storageKey: string) => {
@@ -35,7 +33,7 @@ export const NoFOUCScript = (storageKey: string) => {
     };
   };
 
-  const media = matchMedia(`(prefers-color-scheme: ${DARK})`);
+  const media = window.matchMedia(`(prefers-color-scheme: ${DARK})`);
 
   /** function to add remove dark class */
   window.updateDOM = () => {
@@ -59,33 +57,46 @@ let updateDOM: () => void;
  * Switch button to quickly toggle user preference.
  */
 const Switch = () => {
-  const [mode, setMode] = useState<ColorSchemePreference>(
-    () =>
-      ((typeof localStorage !== 'undefined' && localStorage.getItem(STORAGE_KEY)) ??
-        'system') as ColorSchemePreference,
-  );
+  const [mounted, setMounted] = useState(false);
+  const [mode, setMode] = useState<ColorSchemePreference>('system');
+
+  // 클라이언트 사이드에서만 localStorage에 접근하도록 수정
+  useEffect(() => {
+    setMounted(true);
+    setMode((localStorage.getItem(STORAGE_KEY) ?? 'system') as ColorSchemePreference);
+  }, []);
 
   useEffect(() => {
+    if (!mounted) return;
+
     // store global functions to local variables to avoid any interference
     updateDOM = window.updateDOM;
     /** Sync the tabs */
-    addEventListener('storage', (e): void => {
+    window.addEventListener('storage', (e): void => {
       if (e.key === STORAGE_KEY) {
         setMode(e.newValue as ColorSchemePreference);
       }
     });
-  }, []);
+  }, [mounted]);
 
   useEffect(() => {
+    if (!mounted) return;
+
     localStorage.setItem(STORAGE_KEY, mode);
     updateDOM?.();
-  }, [mode]);
+  }, [mode, mounted]);
 
   /** toggle mode */
   const handleModeSwitch = () => {
     const index = modes.indexOf(mode);
     setMode(modes[(index + 1) % modes.length]);
   };
+
+  // 서버사이드 렌더링 중에는 빈 버튼 반환
+  if (!mounted) {
+    return <button className={styles.switch} />;
+  }
+
   return <button suppressHydrationWarning className={styles.switch} onClick={handleModeSwitch} />;
 };
 

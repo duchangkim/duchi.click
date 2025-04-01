@@ -7,14 +7,16 @@ import ScrollbarWidthSetter from '@/app/_components/use-scrollbar-width-setter';
 import { getAllPosts, getPostBySlug } from '@/lib/api';
 import { markdownToHtml } from '@/lib/markdownToHtml';
 import { Metadata } from 'next';
-import dynamic from 'next/dynamic';
-import { ComponentType } from 'react';
+import { JSX, LazyExoticComponent, lazy } from 'react';
 
-const Comments: ComponentType<{}> = dynamic(() => import('@/app/_components/comments'), {
-  ssr: false,
-});
+const Comments: LazyExoticComponent<() => JSX.Element> = lazy(() =>
+  import('@/app/_components/comments').then((mod) => ({
+    default: mod.default,
+  })),
+);
 
-export default async function Post({ params }: Params) {
+export default async function Post(props: Params) {
+  const params = await props.params;
   const post = getPostBySlug(params.slug);
 
   if (!post) {
@@ -41,12 +43,13 @@ export default async function Post({ params }: Params) {
 }
 
 interface Params {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export function generateMetadata({ params }: Params): Metadata | undefined {
+export async function generateMetadata(props: Params): Promise<Metadata | undefined> {
+  const params = await props.params;
   const post = getPostBySlug(params.slug);
 
   if (!post) {
